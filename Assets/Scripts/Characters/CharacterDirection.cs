@@ -8,8 +8,6 @@
             N, S, E, W, NE, NW, SE, SW
         }
         
-       
-        
         public static Directions GetDirection(Vector2 dir,Directions lastDirection)
         {
             if (dir.x > 0 && dir.y == 0) return Directions.E;
@@ -24,5 +22,5 @@
 
             return lastDirection;
         }
-
+        
     }

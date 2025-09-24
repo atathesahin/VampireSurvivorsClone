@@ -14,6 +14,7 @@ public class PauseMenuUI : MonoBehaviour
 
     private void Update()
     {
+       
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             GameManager.Instance.Pause();
@@ -22,11 +23,13 @@ public class PauseMenuUI : MonoBehaviour
 
     private void OnEnable()
     {
+        if (GameManager.Instance == null) return;
         GameManager.Instance.OnGameState += StateChange;
     }
 
     private void OnDisable()
     {
+        if (GameManager.Instance == null) return;
         GameManager.Instance.OnGameState -= StateChange;
     }
 

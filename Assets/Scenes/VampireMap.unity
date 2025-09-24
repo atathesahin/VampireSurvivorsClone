@@ -291,7 +291,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!50 &93227120
 Rigidbody2D:
   serializedVersion: 4
@@ -368,12 +368,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 50
   maxHealth: 50
-  currentExperience: 0
   moveSpeed: 1
   damage: 0
-  healthRegen: 0
   playerStats: {fileID: 308747279}
   experience: 20
+  damageInterval: 1
 --- !u!114 &93227123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -389,6 +388,7 @@ MonoBehaviour:
   stats: {fileID: 93227122}
   target: {fileID: 2103468570}
   animator: {fileID: 2100347061}
+  attackRange: 0
 --- !u!4 &93227124
 Transform:
   m_ObjectHideFlags: 0
@@ -1573,6 +1573,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6163385370750756093, guid: 4e7e48a12d44ef749b31c5ae4009f2f1, type: 3}
+      propertyPath: m_Size.x
+      value: 0.45985538
+      objectReference: {fileID: 0}
+    - target: {fileID: 6163385370750756093, guid: 4e7e48a12d44ef749b31c5ae4009f2f1, type: 3}
+      propertyPath: m_Size.y
+      value: 0.4598589
+      objectReference: {fileID: 0}
+    - target: {fileID: 6163385370750756093, guid: 4e7e48a12d44ef749b31c5ae4009f2f1, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.049764067
+      objectReference: {fileID: 0}
+    - target: {fileID: 6163385370750756093, guid: 4e7e48a12d44ef749b31c5ae4009f2f1, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.5172334
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1597,7 +1613,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!50 &768105785
 Rigidbody2D:
   serializedVersion: 4
@@ -1674,12 +1690,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 50
   maxHealth: 50
-  currentExperience: 0
   moveSpeed: 1
   damage: 0
-  healthRegen: 0
   playerStats: {fileID: 308747279}
   experience: 20
+  damageInterval: 1
 --- !u!114 &768105788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1695,6 +1710,7 @@ MonoBehaviour:
   stats: {fileID: 768105787}
   target: {fileID: 2103468570}
   animator: {fileID: 440203808}
+  attackRange: 0
 --- !u!4 &768105789
 Transform:
   m_ObjectHideFlags: 0
@@ -1872,7 +1888,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2029,7 +2045,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!50 &895833582
 Rigidbody2D:
   serializedVersion: 4
@@ -2106,12 +2122,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 50
   maxHealth: 50
-  currentExperience: 0
   moveSpeed: 1
   damage: 0
-  healthRegen: 0
   playerStats: {fileID: 308747279}
   experience: 20
+  damageInterval: 1
 --- !u!114 &895833585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2127,6 +2142,7 @@ MonoBehaviour:
   stats: {fileID: 895833584}
   target: {fileID: 2103468570}
   animator: {fileID: 2027327988}
+  attackRange: 0
 --- !u!4 &895833586
 Transform:
   m_ObjectHideFlags: 0
@@ -2160,7 +2176,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &909640307
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2274,7 +2290,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!50 &1051129316
 Rigidbody2D:
   serializedVersion: 4
@@ -2351,12 +2367,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 50
   maxHealth: 50
-  currentExperience: 0
   moveSpeed: 1
   damage: 0
-  healthRegen: 0
   playerStats: {fileID: 308747279}
   experience: 20
+  damageInterval: 1
 --- !u!114 &1051129319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2372,6 +2387,7 @@ MonoBehaviour:
   stats: {fileID: 1051129318}
   target: {fileID: 2103468570}
   animator: {fileID: 2005408128}
+  attackRange: 0
 --- !u!4 &1051129320
 Transform:
   m_ObjectHideFlags: 0
@@ -3402,7 +3418,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!50 &1759375455
 Rigidbody2D:
   serializedVersion: 4
@@ -3479,12 +3495,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 50
   maxHealth: 50
-  currentExperience: 0
   moveSpeed: 1
   damage: 0
-  healthRegen: 0
   playerStats: {fileID: 308747279}
   experience: 20
+  damageInterval: 1
 --- !u!114 &1759375458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3500,6 +3515,7 @@ MonoBehaviour:
   stats: {fileID: 1759375457}
   target: {fileID: 2103468570}
   animator: {fileID: 608742848}
+  attackRange: 0
 --- !u!4 &1759375459
 Transform:
   m_ObjectHideFlags: 0
@@ -4443,12 +4459,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 50
   maxHealth: 50
-  currentExperience: 0
   moveSpeed: 1
-  damage: 0
-  healthRegen: 0
+  damage: 20
   playerStats: {fileID: 308747279}
   experience: 20
+  damageInterval: 1
 --- !u!114 &2104809176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4464,6 +4479,7 @@ MonoBehaviour:
   stats: {fileID: 2104809175}
   target: {fileID: 2103468570}
   animator: {fileID: 1421476980}
+  attackRange: 0.5
 --- !u!4 &2104809177
 Transform:
   m_ObjectHideFlags: 0

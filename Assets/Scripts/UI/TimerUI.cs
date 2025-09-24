@@ -10,6 +10,7 @@ using UnityEngine;
         
         private void OnEnable()
         {
+            if (GameManager.Instance == null) return;
             GameManager.Instance.OnTimeUpdate += UpdateTimeUI;
             
         }
@@ -23,6 +24,7 @@ using UnityEngine;
 
         private void OnDisable()
         {
+            if (GameManager.Instance == null) return;
             GameManager.Instance.OnTimeUpdate -= UpdateTimeUI;
         }
         

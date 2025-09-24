@@ -12,8 +12,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Slider staminaSlider;
     [SerializeField] private TextMeshProUGUI levelText;
 
-    
-
     void OnEnable()
     {
         
@@ -25,8 +23,8 @@ public class UIManager : MonoBehaviour
 
     private void UpdateHealthBar(float _currentHealth, float _maxHealth)
     {
-        healthSlider.value = _currentHealth;
         healthSlider.maxValue = _maxHealth;
+        healthSlider.value = _currentHealth;
     }
 
     private void ExperienceBar(int _experience, int _maxExperience, int level)

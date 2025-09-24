@@ -9,7 +9,7 @@ public class PlayerStats : StatManager
     [SerializeField] private int currentExperience;
     [SerializeField] private int maxExperince = 100;
     [Space]
-    [Header("Basic Stats")] 
+    [Header("Stamina Stats")] 
     [SerializeField] private float maxStamina = 10;
     [SerializeField] private float staminaRegen;
     public float currentStamina = 10;
@@ -32,6 +32,7 @@ public class PlayerStats : StatManager
     {
         base.TakeDamage(damage);
         OnHealthChanged?.Invoke(currentHealth,maxHealth);
+        
     }
     public void GainExperience(int amount)
     {
@@ -65,11 +66,13 @@ public class PlayerStats : StatManager
         OnStaminaChanged?.Invoke(currentStamina,maxStamina);
     }
 
-   
-
+    public void ReceivedDamage(float damage)
+    {
+        TakeDamage(damage);
+      
+    }
     protected override void Die()
     {
-        base.Die();   
         GameManager.Instance.GameOver();
     
     }

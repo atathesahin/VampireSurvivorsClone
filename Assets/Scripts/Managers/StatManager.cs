@@ -2,7 +2,7 @@
 using UnityEngine;
 
 
-    public class StatManager : MonoBehaviour
+    public abstract class StatManager : MonoBehaviour
     {
         [Header("Health Stats")]
         [SerializeField] protected float currentHealth;
@@ -11,6 +11,11 @@ using UnityEngine;
         [Header("Basic Stats")]
         [SerializeField] protected float moveSpeed;
         [SerializeField] protected float damage;
+
+        private void Start()
+        {
+            currentHealth = maxHealth;
+        }
 
         protected virtual void TakeDamage(float damage)
         {
@@ -24,11 +29,9 @@ using UnityEngine;
             }
             
         }
+
+        protected abstract void Die();
         
-        protected virtual void Die()
-        {
-            Destroy(gameObject);
-        }
         
         public float CurrentHealth
         {
