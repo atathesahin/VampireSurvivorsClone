@@ -6,6 +6,6 @@ public class ExpItem : BaseItem
 
     protected override void OnItemEvent(PlayerStats playerStats)
     {
-        playerStats.CurrentExperience += experience;
+        playerStats.GainExperience(experience);
     }
 }

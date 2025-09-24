@@ -6,19 +6,11 @@ using UnityEngine;
     {
         [Header("Health Stats")]
         [SerializeField] protected float currentHealth;
-
-        
         [SerializeField] protected float maxHealth;
-        [SerializeField] protected int currentExperience;
         [Space]
         [Header("Basic Stats")]
         [SerializeField] protected float moveSpeed;
         [SerializeField] protected float damage;
-     
-        [SerializeField] protected float healthRegen;
-       
-        
-
 
         protected virtual void TakeDamage(float damage)
         {
@@ -49,12 +41,7 @@ using UnityEngine;
             get => moveSpeed;
             set => moveSpeed = value;
         }
-
-        public int CurrentExperience
-        {
-            get => currentExperience;
-            set => currentExperience = value;
-        }
+        
         public float Damage
         {
             get => damage;

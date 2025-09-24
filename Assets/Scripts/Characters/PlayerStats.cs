@@ -6,8 +6,8 @@ public class PlayerStats : StatManager
 {
     [Header("Experience Stats")]
     private int Level = 1;
-    
-    private int maxExperince = 100;
+    [SerializeField] private int currentExperience;
+    [SerializeField] private int maxExperince = 100;
     [Space]
     [Header("Basic Stats")] 
     [SerializeField] private float maxStamina = 10;
@@ -26,7 +26,6 @@ public class PlayerStats : StatManager
     void Update()
     {
         GainStamina();
-        GainExperience();
 
     }
     protected override void TakeDamage(float damage)
@@ -34,16 +33,23 @@ public class PlayerStats : StatManager
         base.TakeDamage(damage);
         OnHealthChanged?.Invoke(currentHealth,maxHealth);
     }
-    private void GainExperience()
+    public void GainExperience(int amount)
     {
-        
-        OnExperienceChanged?.Invoke(currentExperience,maxExperince,Level);
+        currentExperience += amount;
+       
         
         if (currentExperience >= maxExperince)
         {
-            currentExperience = 0;
+            currentExperience -= maxExperince;
             LevelUp();
         }
+        OnExperienceChanged?.Invoke(currentExperience,maxExperince,Level);
+    }
+    private void LevelUp()
+    {
+        Level++;
+        maxExperince += 100;
+        OnExperienceChanged?.Invoke(currentExperience,maxExperince,Level);
     }
 
     private void GainStamina()
@@ -59,16 +65,12 @@ public class PlayerStats : StatManager
         OnStaminaChanged?.Invoke(currentStamina,maxStamina);
     }
 
-    private void LevelUp()
-    {
-        Level++;
-        maxExperince += 100;
-        OnExperienceChanged?.Invoke(currentExperience,maxExperince,Level);
-    }
+   
 
     protected override void Die()
     {
-        base.Die();                                                                                                                                                     
+        base.Die();   
+        GameManager.Instance.GameOver();
     
     }
     

@@ -9,7 +9,7 @@ public class EnemyStats : StatManager
 
     public void Update()
     {
-    
+    TakeDamage(0.01f);
 
     }
 
@@ -23,7 +23,7 @@ public class EnemyStats : StatManager
     protected override void Die()
     {
         base.Die();
-        currentExperience += experience;
+        playerStats.GainExperience(experience);
 
 
     }

@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
         public GameState gameState;
         
         #endregion
+        
         #region Events
 
         public event Action<GameState> OnGameState;
@@ -28,7 +29,6 @@ public class GameManager : MonoBehaviour
         public event Action<float> OnTimeUpdate;
     
         #endregion
-        
         
         #region Singleton
         private void Awake()
@@ -63,13 +63,29 @@ public class GameManager : MonoBehaviour
             if (gameState == newState) return;
             
             gameState = newState;
+
+            switch (newState)
+            {
+                case GameState.MainMenu:
+                    Time.timeScale = 1f;
+                    break;
+                case GameState.Playing:
+                    Time.timeScale = 1f;
+                    break;
+                case GameState.Paused:
+                    Time.timeScale = 0f;
+                    break;
+                case GameState.GameOver:
+                    Time.timeScale = 0f;
+                    break;
+                
+            }
             OnGameState?.Invoke(gameState);
         }
         
         public void SelectLevel(string mapName)
         {
             inGameTime = 0;
-            Time.timeScale = 1;
             SwitchState(GameState.Playing);
             OnGameStart?.Invoke();
             SceneManager.LoadScene(mapName);
@@ -91,12 +107,10 @@ public class GameManager : MonoBehaviour
 
             if (gameState == GameState.Playing)
             {
-                Time.timeScale = 0;
                 SwitchState(GameState.Paused);
             }
             else if (gameState == GameState.Paused)
             {
-                Time.timeScale = 1;
                 SwitchState(GameState.Playing);
             }
      

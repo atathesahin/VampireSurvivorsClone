@@ -2,25 +2,18 @@
 
 
    
-        public class PlayerCamera : MonoBehaviour
-        {
-            public Transform target; // The target the camera should follow
-            public float smoothSpeed = 0.125f; // How smooth the camera follows the player. Lower is smoother.
-            public Vector3 offset; // The offset from the player. Adjust as needed.
+public class PlayerCamera : MonoBehaviour
+{
+    public Transform target; 
+    public float smoothSpeed = 0.125f; 
+    public Vector3 offset; 
 
-            void LateUpdate()
-            {
-                // Desired position the camera tries to reach
-                Vector3 desiredPosition = target.position + offset;
-            
-                // Smoothly interpolate between the camera's current position and the desired position
-                // Ensure Z position remains constant if needed
-                desiredPosition.z = transform.position.z; // Keep the camera's Z position constant
-            
-                Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
-            
-                // Update the camera's position
-                transform.position = smoothedPosition;
-            }
-        }
-    
+    void LateUpdate()
+    {
+        if (GameManager.Instance.gameState == GameManager.GameState.GameOver) return;
+        Vector3 desiredPosition = target.position + offset;
+        desiredPosition.z = transform.position.z;
+        Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
+        transform.position = smoothedPosition;
+    }
+}
